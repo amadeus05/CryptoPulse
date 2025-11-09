@@ -31,7 +31,7 @@ export class SignalDetector {
       const active: UserSettingDTO[] = this.settingsRepo.listActive();
       for (const s of active) {
         const current = this.statsService.getCurrentPrice(s.symbol);
-        const minutesAgo = s.interval_min  ?? 20;
+        const minutesAgo = s.interval_min ?? 20;
         const base = this.statsService.getPriceMinutesAgo(s.symbol, minutesAgo);
         if (current == null || base == null) continue;
 
